@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mwenezi High Fees Management</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="School fees management system for Mwenezi High School - Relevant Education for Livelihood">
+    <meta name="theme-color" content="#6D282C">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Mwenezi Fees">
+    
+    <!-- PWA Icons -->
+    <link rel="apple-touch-icon" href="/pwa-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512x512.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mghpayfees.netlify.app/">
+    <meta property="og:title" content="Mwenezi High Fees Management">
+    <meta property="og:description" content="School fees management system for Mwenezi High School">
+    <meta property="og:image" content="https://mghpayfees.netlify.app/pwa-512x512.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mghpayfees.netlify.app/">
+    <meta property="twitter:title" content="Mwenezi High Fees Management">
+    <meta property="twitter:description" content="School fees management system for Mwenezi High School">
+    <meta property="twitter:image" content="https://mghpayfees.netlify.app/pwa-512x512.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js')
+            .then(function(registration) {
+              console.log('SW registered: ', registration);
+            })
+            .catch(function(registrationError) {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

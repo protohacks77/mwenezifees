@@ -1,0 +1,28 @@
+{
+  "name": "Mwenezi High Fees Management",
+  "short_name": "Mwenezi Fees",
+  "description": "School fees management system for Mwenezi High School",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#6D282C",
+  "background_color": "#0f172a",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "finance", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}
