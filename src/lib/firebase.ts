@@ -135,7 +135,7 @@ export const seedInitialData = async (): Promise<void> => {
       currencyCode: 840 // USD
     }
 
-    // Create initial users
+    // Create initial users - Fixed the structure to match authentication logic
     const users = {
       'admin': {
         id: 'admin',
@@ -241,9 +241,10 @@ export const seedInitialData = async (): Promise<void> => {
   }
 }
 
-// User operations
+// User operations - Fixed authentication to check by username
 export const authenticateUser = async (username: string, password: string): Promise<User | null> => {
   try {
+    // First try direct lookup by username as ID
     const userRef = ref(database, `users/${username}`)
     const snapshot = await get(userRef)
     
@@ -253,6 +254,21 @@ export const authenticateUser = async (username: string, password: string): Prom
         return user
       }
     }
+
+    // If not found, search through all users
+    const usersRef = ref(database, 'users')
+    const usersSnapshot = await get(usersRef)
+    
+    if (usersSnapshot.exists()) {
+      const users = usersSnapshot.val()
+      for (const userId in users) {
+        const user = users[userId]
+        if (user.username === username && user.password === password) {
+          return user
+        }
+      }
+    }
+    
     return null
   } catch (error) {
     console.error('Authentication error:', error)

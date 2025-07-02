@@ -7,9 +7,18 @@ import { Layout } from './components/Layout/Layout'
 import { LoginForm } from './components/Auth/LoginForm'
 import { AdminDashboard } from './pages/Admin/AdminDashboard'
 import { ManageStudents } from './pages/Admin/ManageStudents'
+import { CreateStudent } from './pages/Admin/CreateStudent'
+import { StudentProfile } from './pages/Admin/StudentProfile'
+import { FinancialActivity } from './pages/Admin/FinancialActivity'
+import { FeeTermConfig } from './pages/Admin/FeeTermConfig'
+import { NotificationsPanel } from './pages/Admin/NotificationsPanel'
+import { BursarDashboard } from './pages/Bursar/BursarDashboard'
+import { ProcessPayments } from './pages/Bursar/ProcessPayments'
+import { DailyReconciliation } from './pages/Bursar/DailyReconciliation'
 import { StudentDashboard } from './pages/Student/StudentDashboard'
 import { PaymentProcess } from './pages/Student/PaymentProcess'
 import { PaymentStatus } from './pages/Student/PaymentStatus'
+import { PaymentHistory } from './pages/Student/PaymentHistory'
 import { LoadingSpinner } from './components/Common/LoadingSpinner'
 
 function App() {
@@ -62,20 +71,20 @@ function App() {
                 <>
                   <Route path="/admin" element={<AdminDashboard />} />
                   <Route path="/admin/students" element={<ManageStudents />} />
-                  <Route path="/admin/students/new" element={<div>Create Student (Coming Soon)</div>} />
-                  <Route path="/admin/student/:id" element={<div>Student Profile (Coming Soon)</div>} />
-                  <Route path="/admin/transactions" element={<div>Financial Activity (Coming Soon)</div>} />
-                  <Route path="/admin/config" element={<div>Fee/Term Config (Coming Soon)</div>} />
-                  <Route path="/admin/notifications" element={<div>Notifications (Coming Soon)</div>} />
+                  <Route path="/admin/students/new" element={<CreateStudent />} />
+                  <Route path="/admin/student/:id" element={<StudentProfile />} />
+                  <Route path="/admin/transactions" element={<FinancialActivity />} />
+                  <Route path="/admin/config" element={<FeeTermConfig />} />
+                  <Route path="/admin/notifications" element={<NotificationsPanel />} />
                 </>
               )}
 
               {/* Bursar Routes */}
               {user?.role === 'bursar' && (
                 <>
-                  <Route path="/bursar" element={<div>Bursar Dashboard (Coming Soon)</div>} />
-                  <Route path="/bursar/payments" element={<div>Process Payments (Coming Soon)</div>} />
-                  <Route path="/bursar/reconciliation" element={<div>Daily Reconciliation (Coming Soon)</div>} />
+                  <Route path="/bursar" element={<BursarDashboard />} />
+                  <Route path="/bursar/payments" element={<ProcessPayments />} />
+                  <Route path="/bursar/reconciliation" element={<DailyReconciliation />} />
                 </>
               )}
 
@@ -84,7 +93,7 @@ function App() {
                 <>
                   <Route path="/student" element={<StudentDashboard />} />
                   <Route path="/student/payment-process" element={<PaymentProcess />} />
-                  <Route path="/student/payments" element={<div>Payment History (Coming Soon)</div>} />
+                  <Route path="/student/payments" element={<PaymentHistory />} />
                 </>
               )}
 
